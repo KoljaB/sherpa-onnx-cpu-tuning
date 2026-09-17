@@ -1,0 +1,12 @@
+Experimental sherpa-ONNX CPU session build
+
+Upstream sherpa-ONNX: https://github.com/k2-fsa/sherpa-onnx, tag v1.13.4.
+The CPU session patch is distributed under the upstream Apache-2.0 license.
+The native wheel also includes dependencies with their own licenses, including
+eSpeak NG under GPLv3. It is not an Apache-only dependency bundle.
+The accompanying build-sources archive contains the patched sherpa sources and
+all fetched native dependency source trees used for this build, with their
+license/copyright notices. ONNX Runtime is an upstream prebuilt MIT-licensed
+dependency; its included headers, binaries and license are retained.
+See THIRD_PARTY_NOTICES.tar.gz for a convenient copy of dependency notices.
+No Orukeet model weights or user audio are included.

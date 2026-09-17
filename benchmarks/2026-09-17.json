@@ -1,0 +1,452 @@
+{
+  "method": "12 alternating-order rounds; two warmups per duration; inactive owned worker processes SIGSTOP to prevent idle native pool contention; identical audio and affinity",
+  "scope": "One Linux x86-64 host, fixed affinity to seven performance cores. No model weights, test audio, transcripts, or host paths are distributed.",
+  "medians_ms": {
+    "orukeet-stock": {
+      "3": 154.4687255000099,
+      "5": 245.27806699916255
+    },
+    "orukeet-optimized": {
+      "3": 74.17502299995249,
+      "5": 112.21711550024338
+    },
+    "parakeet-tuned": {
+      "3": 100.20461900057853,
+      "5": 152.17160249994777
+    }
+  },
+  "rows": [
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.53074499964714,
+      "round": 0
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 75.58964800045942,
+      "round": 0
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.64035200048238,
+      "round": 0
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.27375499928894,
+      "round": 0
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 114.03604800034373,
+      "round": 0
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.41678299935302,
+      "round": 0
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.30722000010428,
+      "round": 1
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.1365890007728,
+      "round": 1
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.55597700020007,
+      "round": 1
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.33457800059114,
+      "round": 1
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 111.55514800157107,
+      "round": 1
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.32612599978165,
+      "round": 1
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.37582000049588,
+      "round": 2
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 75.41742099965631,
+      "round": 2
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.20255900053598,
+      "round": 2
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.4232049985876,
+      "round": 2
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 112.22025200004282,
+      "round": 2
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 151.76775200052361,
+      "round": 2
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 99.59593399980804,
+      "round": 3
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 73.84800100044231,
+      "round": 3
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.46575399982976,
+      "round": 3
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.4834040010319,
+      "round": 3
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 111.53214399928402,
+      "round": 3
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.2476429989474,
+      "round": 3
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.18914599831623,
+      "round": 4
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.0867860004073,
+      "round": 4
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.35705600057554,
+      "round": 4
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.62974400032545,
+      "round": 4
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 113.78981999951066,
+      "round": 4
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 151.91197100102727,
+      "round": 4
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.08498900060658,
+      "round": 5
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.21345699913218,
+      "round": 5
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.47169700019003,
+      "round": 5
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.07617899977777,
+      "round": 5
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 111.35190200002398,
+      "round": 5
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.1275759995042,
+      "round": 5
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.4730850000633,
+      "round": 6
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.73814299919468,
+      "round": 6
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 99.96665200014831,
+      "round": 6
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.0900370004092,
+      "round": 6
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 112.60284300078638,
+      "round": 6
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 151.4886059994751,
+      "round": 6
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 99.70936699937738,
+      "round": 7
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 73.61400999980106,
+      "round": 7
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.5432900002197,
+      "round": 7
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.30575199893792,
+      "round": 7
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 111.00125299890351,
+      "round": 7
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.22178799998073,
+      "round": 7
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.4483260004199,
+      "round": 8
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.62105600097857,
+      "round": 8
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.20667900062108,
+      "round": 8
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.3012830010266,
+      "round": 8
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 112.4024319997261,
+      "round": 8
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 151.5531840013864,
+      "round": 8
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.1519460005511,
+      "round": 9
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 73.85330500073906,
+      "round": 9
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.86750899981416,
+      "round": 9
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 153.36347999982536,
+      "round": 9
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 112.21397900044394,
+      "round": 9
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.33391799923265,
+      "round": 9
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.3158409986063,
+      "round": 10
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 74.58191700061434,
+      "round": 10
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.61887499978184,
+      "round": 10
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.2622689997952,
+      "round": 10
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 113.26134400042065,
+      "round": 10
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.123046998895,
+      "round": 10
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 3.0,
+      "ms": 100.27538599933905,
+      "round": 11
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 3.0,
+      "ms": 73.78927599893359,
+      "round": 11
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 3.0,
+      "ms": 154.37328799998795,
+      "round": 11
+    },
+    {
+      "label": "parakeet-tuned",
+      "seconds": 5.0,
+      "ms": 152.22015800100053,
+      "round": 11
+    },
+    {
+      "label": "orukeet-optimized",
+      "seconds": 5.0,
+      "ms": 111.8733670009533,
+      "round": 11
+    },
+    {
+      "label": "orukeet-stock",
+      "seconds": 5.0,
+      "ms": 245.28237899903615,
+      "round": 11
+    }
+  ]
+}

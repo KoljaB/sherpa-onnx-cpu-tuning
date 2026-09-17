@@ -1,0 +1,56 @@
+{
+  "distribution": "sherpa-onnx",
+  "version": "1.13.4+orukeet.cpu1",
+  "upstream_tag": "v1.13.4",
+  "upstream_archive_sha256": "3243cb386d3a4ac87596adf7d2c89fddf23e2948b154942b987b4d91c1fee295",
+  "wheel_sha256": "1c781606aa4e4e261e48b5e4972d6f5a85c89e097cac52ec803cbd6fe9aaa99f",
+  "validated_platform": "Ubuntu 24.04 x86-64, CPython 3.12",
+  "native_requirements": {
+    "glibc": ">=2.38",
+    "libstdc++_symbol": "GLIBCXX_3.4.32",
+    "alsa": "libasound.so.2"
+  },
+  "bundled_onnxruntime": "1.27.0",
+  "build_type": "Release",
+  "compiler": "GCC 13.3.0",
+  "changes": {
+    "sherpa-onnx/csrc/session.h": {
+      "before": "f54d5b716b2fa14940738676f7f26476feb7b12324001711f708a230dfbafab2",
+      "after": "048a5e6929ca4fcbec0258132dbfb1ac55a2a0470a1247078d2055a3c5419f3b"
+    },
+    "sherpa-onnx/csrc/session.cc": {
+      "before": "50fa19ac9e43fd02b2c72fdcb13ebe8659e00ef40882905d2a99b64d8502ad11",
+      "after": "3f6c84b0b3d18a06c6c9869cda54ac40828cd0c2496b240bb4b1bee12b5899a2"
+    },
+    "sherpa-onnx/csrc/offline-transducer-nemo-model.cc": {
+      "before": "e7e0a6cb2573f1c6b86346f2b7c0ca177d7096c956d7f5bc8c283cdf7da10fea",
+      "after": "f9c4df398cbebbace71df5f7604644b9336307073e2179fcd3574a03c36f7f4f"
+    },
+    "setup.py": {
+      "before": "7c35df6d329713f1445ba81ea713633560ee04dbe2efe95febd6cbb90eba0282",
+      "after": "15db280e818ae06e2c0cf68af2ea8bcf675c31d8ceabfd265c9dfa62b2ae9f2b"
+    }
+  },
+  "verified_wheel_package_files": {
+    "sherpa_onnx/__init__.py": "f3e534b316d250d6bf42719347149b82d776e943cde9461bd519363845e6b738",
+    "sherpa_onnx/cli.py": "f0dba0ce2b5c4da075e6d26709ae404622673531a2196c311b65620138548cbe",
+    "sherpa_onnx/display.py": "59185ca98d9ea7a27da1476a545e7429d7c8ba8da54b10c9643aae7d7f9d5167",
+    "sherpa_onnx/keyword_spotter.py": "34ddf2c267963fbc54a8101545502ef46de6802f6859f9303b430a0486b5d922",
+    "sherpa_onnx/offline_recognizer.py": "f862ba8b174bdd7eef6562729ac1518bf444ea4dbde12db98c92221e6065402e",
+    "sherpa_onnx/online_recognizer.py": "a80620a5eb35e06a190584c2c643e5210bff672410283e5a8f106655c1519c9e",
+    "sherpa_onnx/sherpa-onnx.pc": "c2eee6b215dbd1e66ea8bdb69ba96d3b515443bff05bbea24ba62b2c72d4f0ba",
+    "sherpa_onnx/utils.py": "8226d02f91fe42f7f048ae04353b5874f4917aff72f3c0e7dd9aaec528bdac41",
+    "sherpa_onnx/include/sherpa-onnx/c-api/c-api.h": "587e1039cc4ee242169494f3c0ba5baecc22482341168d88d57db965e1e77fa9",
+    "sherpa_onnx/include/sherpa-onnx/c-api/cxx-api.h": "706e2c4ef1f64ee962b66df746bff88d6072d701ef5d31517b060242c8116072",
+    "sherpa_onnx/lib/_sherpa_onnx.cpython-312-x86_64-linux-gnu.so": "b93e38d9e2c0ad54bca45a5e7c4ebd2a11e9f5d50bc90b94bc84078cd6942490",
+    "sherpa_onnx/lib/libonnxruntime.so": "026c7d5c609323fb16506dbc3cce801bcdffdd7566fdba49a50727e2e1e881ca",
+    "sherpa_onnx/lib/libsherpa-onnx-c-api.so": "10d0cf85980e8bc506e35e9825b5fe910330ebf08a2db4beff7627d8a5515f8d",
+    "sherpa_onnx/lib/libsherpa-onnx-cxx-api.so": "7674f37a6194a1f040892400e0815c36afe5d89c344ea2b0286fb2dbde92ed70"
+  },
+  "source_file_count": 12206,
+  "license_notice_count": 29,
+  "live_service_verified_utc": "2026-09-17T20:36:43.189560+00:00",
+  "live_ready": true,
+  "live_engine": "sherpa_onnx_parakeet",
+  "live_model": "oruk/orukeet"
+}

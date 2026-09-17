@@ -1,0 +1,12 @@
+{
+  "fresh_python_venv_install": true,
+  "distribution": "sherpa-onnx",
+  "version": "1.13.4+orukeet.cpu1",
+  "numpy": "2.5.3",
+  "real_orukeet_decodes": 3,
+  "consistent_transcription": true,
+  "source_archive_files_verified": 12206,
+  "patch_reproduced_from_pinned_upstream_archive": true,
+  "installed_sherpa_package_files_matching_release_wheel": 14,
+  "paired_native_timing_rows": 72
+}

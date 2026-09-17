@@ -1,0 +1,18 @@
+{
+  "sherpa-onnx/csrc/session.h": {
+    "before": "f54d5b716b2fa14940738676f7f26476feb7b12324001711f708a230dfbafab2",
+    "after": "048a5e6929ca4fcbec0258132dbfb1ac55a2a0470a1247078d2055a3c5419f3b"
+  },
+  "sherpa-onnx/csrc/session.cc": {
+    "before": "50fa19ac9e43fd02b2c72fdcb13ebe8659e00ef40882905d2a99b64d8502ad11",
+    "after": "3f6c84b0b3d18a06c6c9869cda54ac40828cd0c2496b240bb4b1bee12b5899a2"
+  },
+  "sherpa-onnx/csrc/offline-transducer-nemo-model.cc": {
+    "before": "e7e0a6cb2573f1c6b86346f2b7c0ca177d7096c956d7f5bc8c283cdf7da10fea",
+    "after": "f9c4df398cbebbace71df5f7604644b9336307073e2179fcd3574a03c36f7f4f"
+  },
+  "setup.py": {
+    "before": "7c35df6d329713f1445ba81ea713633560ee04dbe2efe95febd6cbb90eba0282",
+    "after": "15db280e818ae06e2c0cf68af2ea8bcf675c31d8ceabfd265c9dfa62b2ae9f2b"
+  }
+}
