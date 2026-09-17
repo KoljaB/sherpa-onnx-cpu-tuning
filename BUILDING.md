@@ -1,5 +1,8 @@
 # Reproduce the experimental CPU build
 
+This preserves the legacy v1.13.4-cpu.1 build. The current tested configuration
+uses official v1.13.8 wheels; see [upgrade and comparison procedure](UPGRADING.md).
+
 Build on Linux x86-64 with CPython 3.12. The published binary was produced on
 Ubuntu 24.04 with GCC 13.3.0 and bundled ONNX Runtime 1.27.0. It requires glibc
 2.38 and GLIBCXX_3.4.32; this recipe does not claim manylinux portability.

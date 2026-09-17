@@ -46,11 +46,23 @@ def main():
     for duration in durations:
         for _ in range(2):
             run(duration)
+    # The pip onnxruntime distribution is separate from sherpa's native library.
+    import ctypes
+    import sherpa_onnx
+    native_lib = next((Path(sherpa_onnx.__file__).parent / "lib").glob("libonnxruntime.so*"))
+    library = ctypes.CDLL(str(native_lib))
+    library.OrtGetApiBase.restype = ctypes.POINTER(ctypes.c_void_p)
+    native_ort = ctypes.CFUNCTYPE(ctypes.c_char_p)(library.OrtGetApiBase()[1])().decode()
+    packages = {}
+    for name in ("sherpa-onnx", "sherpa-onnx-core", "onnxruntime", "onnx-asr"):
+        try:
+            packages[name] = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            packages[name] = None
     metadata = {"label": config["label"], "config": config,
                 "audio_sha256": hashlib.sha256(args.audio.read_bytes()).hexdigest(),
-                "python": sys.executable,
-                "packages": {name: importlib.metadata.version(name) for name in
-                             ["sherpa-onnx", "onnxruntime", "onnx-asr"]}}
+                "python": sys.executable, "native_ort": native_ort,
+                "packages": packages}
     if args.worker:
         print(json.dumps({"ready": True, **metadata}), flush=True)
         for line in sys.stdin:

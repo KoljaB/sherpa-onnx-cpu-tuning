@@ -1,0 +1,20 @@
+{
+  "label": "official-1.13.8",
+  "engine": "sherpa_onnx_parakeet",
+  "model": "oruk/orukeet",
+  "affinity": [
+    1,
+    3,
+    7,
+    9,
+    11,
+    13,
+    15
+  ],
+  "options": {
+    "provider": "cpu:/absolute/path/official-cpu-sessions.conf",
+    "num_threads": 7,
+    "model_dir": "/absolute/path/sherpa-onnx-orukeet-v0.1.0-int8",
+    "verify_model_files": true
+  }
+}

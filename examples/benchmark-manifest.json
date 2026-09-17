@@ -1,0 +1,20 @@
+{
+  "worker": "/path/to/sherpa-onnx-cpu-tuning/tools/benchmark_cpu_sessions.py",
+  "audio": "/path/to/approved-5s.wav",
+  "durations": [
+    3,
+    5
+  ],
+  "variants": [
+    {
+      "label": "previous",
+      "python": "/opt/asr/previous/bin/python",
+      "config": "/path/to/previous-config.json"
+    },
+    {
+      "label": "candidate",
+      "python": "/opt/asr/candidate/bin/python",
+      "config": "/path/to/candidate-config.json"
+    }
+  ]
+}

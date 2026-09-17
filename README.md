@@ -1,11 +1,68 @@
 # sherpa-ONNX CPU tuning
 
-Experimental, independently maintained CPU-session patch and binary build of
-[sherpa-ONNX 1.13.4](https://github.com/k2-fsa/sherpa-onnx/tree/v1.13.4).
-This is not an official k2-fsa release. The initial release is intentionally
-limited to the platform on which its binary was tested.
+Tested CPU configurations, repeatable upgrade benchmarks, and the preserved
+experimental sherpa-ONNX 1.13.4 session patch. This is an independently maintained
+project, not an official k2-fsa distribution.
 
-## Download and compatibility
+## Recommended configuration: official 1.13.8
+
+The 2026-09-18 comparison selected **official sherpa-ONNX 1.13.8 with seven
+threads and spinning disabled**. It outperformed our earlier custom wheel on the
+tested Ubuntu 24.04 x86-64 / CPython 3.12 / Intel i9-13900KF host. A custom binary
+is no longer required for that measured configuration. Model weights were unchanged.
+
+Install RealtimeSTT and its desired extras first, then select the official wheels:
+
+```bash
+python -m pip install "sherpa-onnx==1.13.8" "sherpa-onnx-core==1.13.8"
+```
+
+Save [official-cpu-sessions.conf](examples/official-cpu-sessions.conf) locally:
+
+```ini
+SessionConfig.session.intra_op.allow_spinning=0
+SessionConfig.session.inter_op.allow_spinning=0
+```
+
+Pass `{"provider": "cpu:/absolute/path/official-cpu-sessions.conf", "num_threads": 7}`
+in RealtimeSTT's `transcription_engine_options` or server `--engine-options`,
+retaining existing model-directory and verification options. Upstream forwards
+`SessionConfig.*` entries into ONNX Runtime. The legacy custom `AllowSpinning`
+and component thread keys are not the official syntax. Verify the installed
+version after installing extras again, because their dependency pin may differ.
+
+| Native median | Tuned 1.13.4, 7/1/1 | Official 1.13.8, 7/7/7 |
+| --- | ---: | ---: |
+| 3-second audio, idle | 74.72 ms | 70.82 ms |
+| 5-second audio, idle | 113.32 ms | 107.20 ms |
+| 3-second audio, synthetic contention | 82.31 ms | 76.28 ms |
+| 5-second audio, synthetic contention | 124.32 ms | 116.61 ms |
+
+Both configurations disabled spinning. Twenty alternating-order rounds per case
+used the same audio, two warmups per duration and fixed affinity. Inactive owned
+workers were stopped to prevent pool interference. The sweep also measured the
+new runtime with two and four threads. All 240 timed calls preserved transcripts.
+Five-second API medians were 118.89 to 114.23 ms in sequential before/after checks.
+Ten Preview events including continuation passed, with two Live partial events,
+zero errors and one inference attempt per Preview. The eight short requests
+had a 36.86 ms median (34.44-38.39 ms range).
+
+These are bounded ASR results on one host. They do not establish broader accuracy,
+performance on other hardware, or audible assistant-response latency. Seven
+threads is a measured setting, not an automatic optimum. The two versions also
+use different bundled ONNX Runtime versions, so this comparison does not isolate
+whether runtime changes or the thread split account for the small difference.
+
+The selected native ONNX Runtime is **1.28.2**. A separately installed Python
+`onnxruntime` package may have a different version. The official wheel platform
+tags differ from the legacy build's stricter native requirements below.
+[Timing-only evidence and wheel hashes](benchmarks/2026-09-18.json).
+
+For future updates, use the [upgrade procedure](UPGRADING.md) and
+[paired comparison command](tools/compare_cpu_runtimes.py). Prefer the tested
+official configuration; retain a custom patch only for a measured remaining need.
+
+## Legacy download and compatibility: 1.13.4-cpu.1
 
 [Release v1.13.4-cpu.1](https://github.com/KoljaB/sherpa-onnx-cpu-tuning/releases/tag/v1.13.4-cpu.1)
 contains the tested wheel, patched sdist, native build sources, dependency notices,
@@ -22,7 +79,7 @@ contains upstream TTS dependencies, including GPLv3 eSpeak NG. See [NOTICE](NOTI
 and the release's dependency notices and corresponding build sources; the
 upstream Apache license alone does not describe every bundled dependency.
 
-## Install
+## Legacy install
 
 Use a Python 3.12 virtual environment. Install the exact wheel with a pinned hash:
 
@@ -52,7 +109,7 @@ Choose the encoder count for available cores and concurrent workloads; seven is
 the measured setting for one host, not an automatic hardware optimum.
 **Stock sherpa 1.13.4 ignores the new keys. Verify the distribution version first.**
 
-## RealtimeSTT integration
+## Legacy RealtimeSTT integration
 
 The following public source revision includes Orukeet's pinned model installer
 and adapter. Use a fresh environment; install RealtimeSTT, then the patched wheel
@@ -89,7 +146,7 @@ For the production server, pass the same dictionary through `--engine-options`.
 Language and live-ASR choices remain application settings. This runtime release
 provides no automatic thread tuning and changes no RealtimeSTT defaults.
 
-## Why this patch exists
+## Why the 1.13.4 patch was built
 
 The stock NeMo transducer loader uses the same thread count for three separate
 native sessions. Their waiting worker pools can compete for the same cores.
@@ -115,7 +172,7 @@ study or an audible assistant-response benchmark. The Parakeet row uses a
 different model/backend combination. [Measurement data](benchmarks/2026-09-17.json)
 contains timings only, without user audio or transcripts.
 
-## Sources and verification
+## Legacy sources and verification
 
 - [Exact native patch](patches/cpu-sessions.patch)
 - [Guarded patch generator](tools/prepare_cpu_session_build.py)
@@ -124,11 +181,11 @@ contains timings only, without user audio or transcripts.
 - [Release checksums](release/SHA256SUMS)
 - [Benchmark worker](tools/benchmark_cpu_sessions.py)
 
-The public wheel is byte-for-byte the artifact verified against the live ASR
-runtime. All 14 installed sherpa package files matched the wheel. The unchanged
-bundled ONNX Runtime is 1.27.0. The release includes the exact patched source
+The legacy public wheel is byte-for-byte the artifact verified against the ASR
+runtime at its original deployment. All 14 installed sherpa package files matched
+the wheel. The bundled ONNX Runtime is 1.27.0. The release includes the exact patched source
 archive plus the native dependency source trees and notices needed to inspect
 and reproduce the build.
 
-Upstream integration is the preferred long-term path; no upstream pull request
-has been submitted as part of this release.
+No upstream pull request was submitted as part of the legacy release. The
+current official-runtime profile uses upstream session-config forwarding.
